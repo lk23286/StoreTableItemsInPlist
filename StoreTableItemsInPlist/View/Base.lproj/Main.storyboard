@@ -30,7 +30,11 @@
                             <outlet property="delegate" destination="27S-H4-AuG" id="kd9-4k-buc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todo list" id="WJe-vz-XzP"/>
+                    <navigationItem key="navigationItem" title="Todo list" id="WJe-vz-XzP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vHI-Z7-GCm">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPY-IN-cCP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
