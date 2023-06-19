@@ -48,8 +48,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sgp-YG-1NC">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <textAttributes key="largeTitleTextAttributes">
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <textAttributes key="titleTextAttributes">
                             <color key="textColor" systemColor="systemYellowColor"/>
                         </textAttributes>
                     </navigationBar>
@@ -67,8 +67,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
