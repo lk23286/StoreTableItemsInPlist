@@ -9,7 +9,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var itemArray = ["Apple", "Banan"]
+   var itemArray = [Item]()
+    
+    //["Apple", "Banan"]
     
     //var defaults = UserDefaults.standard
     
@@ -19,6 +21,10 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         print(dataFilePath!)
+        
+        let item = Item()
+        item.title = "Apple"
+        itemArray.append(item)
         
 //        if let items = defaults.array(forKey: "TodoItems") as? [String] {
 //            itemArray = items
@@ -36,7 +42,11 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell")
         
-        cell?.textLabel?.text = itemArray[indexPath.row]
+        let item = itemArray[indexPath.row]
+        
+        cell?.textLabel?.text = item.title
+        
+        cell?.accessoryType = item.done ? .checkmark: .none
         
         return cell!
         
@@ -46,13 +56,18 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+//        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//        } else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//        }
+        
+        tableView.reloadData()
+        
         
     }
     //MARK: - Add Item
@@ -64,13 +79,15 @@ class TableViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { alert in
             
-            if let newItem = textField.text {
-                self.itemArray.append(newItem)
+            if let newTextField = textField.text {
                 
-                self.defaults.set(self.itemArray, forKey: "TodoItems")
+                let newItem = Item()
+                newItem.title = newTextField
+                self.itemArray.append(newItem)
             }
            
             self.tableView.reloadData()
+            
         }
         
         alert.addAction(action)
