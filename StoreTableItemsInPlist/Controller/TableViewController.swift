@@ -11,17 +11,19 @@ class TableViewController: UITableViewController {
     
     var itemArray = ["Apple", "Banan"]
     
-    var defaults = UserDefaults()
+    //var defaults = UserDefaults.standard
     
-    
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last?.appendingPathComponent("item.plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = defaults.array(forKey: "TodoItems") as? [String] {
-            itemArray = items
-        }
-        // Do any additional setup after loading the view.
+        print(dataFilePath!)
+        
+//        if let items = defaults.array(forKey: "TodoItems") as? [String] {
+//            itemArray = items
+//        }
+      
     }
 
     //MARK: - Table
