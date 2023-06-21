@@ -66,8 +66,7 @@ class TableViewController: UITableViewController {
 //            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
 //        }
         
-        tableView.reloadData()
-        
+        saveItems()
         
     }
     //MARK: - Add Item
@@ -86,7 +85,7 @@ class TableViewController: UITableViewController {
                 self.itemArray.append(newItem)
             }
            
-            self.tableView.reloadData()
+            self.saveItems()
             
         }
         
@@ -98,6 +97,23 @@ class TableViewController: UITableViewController {
         
         present(alert, animated: true)
     }
+    
+    //MARK: - Data Manipulation
+   
+    func saveItems() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+                  
+        } catch {
+            print(error)
+        }
+        tableView.reloadData()
+        
+    }
+    
     
 }
 
